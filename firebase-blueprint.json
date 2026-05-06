@@ -1,0 +1,80 @@
+{
+  "entities": {
+    "Task": {
+      "title": "Task",
+      "description": "A discrete unit of work within a module.",
+      "type": "object",
+      "properties": {
+        "title": { "type": "string" },
+        "module": { "type": "string" },
+        "status": { "type": "string", "enum": ["open", "completed"] },
+        "priority": { "type": "string", "enum": ["low", "medium", "high"] },
+        "dueDate": { "type": "string", "format": "date-time" },
+        "userId": { "type": "string" },
+        "createdAt": { "type": "string", "format": "date-time" }
+      },
+      "required": ["title", "module", "status", "priority", "userId"]
+    },
+    "Habit": {
+      "title": "Habit",
+      "description": "Routines for life optimization.",
+      "type": "object",
+      "properties": {
+        "name": { "type": "string" },
+        "streak": { "type": "number" },
+        "completedToday": { "type": "boolean" },
+        "userId": { "type": "string" }
+      },
+      "required": ["name", "streak", "completedToday", "userId"]
+    },
+    "Transaction": {
+      "title": "Transaction",
+      "description": "Financial records.",
+      "type": "object",
+      "properties": {
+        "amount": { "type": "number" },
+        "type": { "type": "string", "enum": ["income", "expense"] },
+        "category": { "type": "string" },
+        "description": { "type": "string" },
+        "date": { "type": "string", "format": "date-time" },
+        "userId": { "type": "string" }
+      },
+      "required": ["amount", "type", "category", "userId"]
+    },
+    "UserProfile": {
+      "title": "User Profile",
+      "description": "Core identity and configuration for the user.",
+      "type": "object",
+      "properties": {
+        "name": { "type": "string" },
+        "email": { "type": "string" },
+        "role": { "type": "string" },
+        "location": { "type": "string" },
+        "timezone": { "type": "string" },
+        "skills": { "type": "array" },
+        "workHistory": { "type": "string" },
+        "academicHistory": { "type": "array" },
+        "priorities": { "type": "array" },
+        "productivityStyle": { "type": "string" }
+      }
+    }
+  },
+  "firestore": {
+    "/users/{userId}/tasks/{taskId}": {
+      "schema": "Task",
+      "description": "User's task management system."
+    },
+    "/users/{userId}/habits/{habitId}": {
+      "schema": "Habit",
+      "description": "User's behavioral tracking."
+    },
+    "/users/{userId}/transactions/{txId}": {
+      "schema": "Transaction",
+      "description": "User's financial data."
+    },
+    "/users/{userId}/profile/main": {
+      "schema": "UserProfile",
+      "description": "User's top-level identity data."
+    }
+  }
+}

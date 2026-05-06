@@ -1,0 +1,110 @@
+rules_version = '2';
+service cloud.firestore {
+  match /databases/{database}/documents {
+    // 0. Global Safety Net
+    match /{document=**} {
+      allow read, write: if false;
+    }
+
+    // Phase 3: Primitives
+    function isSignedIn() {
+      return request.auth != null;
+    }
+
+    function isVerified() {
+      return isSignedIn() && request.auth.token.email_verified == true;
+    }
+
+    function isOwner(userId) {
+      return isSignedIn() && request.auth.uid == userId;
+    }
+
+    function isValidId(id) {
+      return id is string && id.size() <= 128 && id.matches('^[a-zA-Z0-9_\\-]+$');
+    }
+
+    function incoming() {
+      return request.resource.data;
+    }
+
+    function existing() {
+      return resource.data;
+    }
+
+    // 1. Task Validation
+    function isValidTask(data) {
+      return data.keys().hasAll(['title', 'module', 'status', 'priority', 'userId']) &&
+             data.keys().size() <= 10 &&
+             data.title is string && data.title.size() <= 200 &&
+             data.module is string && data.module.size() <= 50 &&
+             data.status in ['open', 'completed'] &&
+             data.priority in ['low', 'medium', 'high'] &&
+             data.userId == request.auth.uid;
+    }
+
+    // 2. Habit Validation
+    function isValidHabit(data) {
+      return data.keys().hasAll(['name', 'streak', 'completedToday', 'userId']) &&
+             data.keys().size() <= 6 &&
+             data.name is string && data.name.size() <= 100 &&
+             data.streak is number &&
+             data.completedToday is bool &&
+             data.userId == request.auth.uid;
+    }
+
+    // 3. Transaction Validation
+    function isValidTransaction(data) {
+      return data.keys().hasAll(['amount', 'type', 'category', 'userId']) &&
+             data.keys().size() <= 8 &&
+             data.amount is number &&
+             data.type in ['income', 'expense'] &&
+             data.category is string &&
+             data.userId == request.auth.uid;
+    }
+
+    // 4. Profile Validation
+    function isValidProfile(data) {
+      return data.keys().hasAll(['name', 'email']) &&
+             data.keys().size() <= 15 &&
+             data.name is string && data.name.size() <= 100 &&
+             data.email == request.auth.token.email;
+    }
+
+    match /users/{userId} {
+      match /tasks/{taskId} {
+        allow get: if isOwner(userId) && isValidId(taskId);
+        allow list: if isOwner(userId);
+        
+        allow create: if isVerified() && isOwner(userId) && isValidId(taskId) && isValidTask(incoming());
+        allow update: if isVerified() && isOwner(userId) && isValidId(taskId) && isValidTask(incoming()) && (
+          // Action: Toggle
+          (incoming().diff(existing()).affectedKeys().hasOnly(['status'])) ||
+          // Action: Edit
+          (incoming().diff(existing()).affectedKeys().hasOnly(['title', 'module', 'priority', 'dueDate']))
+        );
+        allow delete: if isVerified() && isOwner(userId) && isValidId(taskId);
+      }
+
+      match /habits/{habitId} {
+        allow get: if isOwner(userId) && isValidId(habitId);
+        allow list: if isOwner(userId);
+        allow create: if isVerified() && isOwner(userId) && isValidId(habitId) && isValidHabit(incoming());
+        allow update: if isVerified() && isOwner(userId) && isValidId(habitId) && isValidHabit(incoming()) &&
+                      incoming().diff(existing()).affectedKeys().hasOnly(['completedToday', 'streak']);
+        allow delete: if isVerified() && isOwner(userId) && isValidId(habitId);
+      }
+
+      match /transactions/{txId} {
+        allow get: if isOwner(userId) && isValidId(txId);
+        allow list: if isOwner(userId);
+        allow create: if isVerified() && isOwner(userId) && isValidId(txId) && isValidTransaction(incoming());
+        allow delete: if isVerified() && isOwner(userId) && isValidId(txId);
+      }
+
+      match /profile/main {
+        allow get: if isOwner(userId);
+        allow write: if isVerified() && isOwner(userId) && isValidProfile(incoming());
+      }
+    }
+  }
+}
