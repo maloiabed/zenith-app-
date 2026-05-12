@@ -44,15 +44,15 @@ export function Dashboard() {
         
         <div className="flex items-center gap-3">
           <div className="text-[12px] font-black text-white bg-indigo-600/20 px-4 py-2 rounded-xl border border-indigo-500/20 flex items-center font-mono">
-            <Clock className="mr-2 h-4 w-4 text-indigo-400" />
+            <Clock className="mr-2 h-4 w-4 md:h-5 md:w-5 text-indigo-400" />
             {formattedTime}
           </div>
           <div className="hidden sm:flex text-[10px] font-black text-gray-400 items-center uppercase tracking-[0.2em] bg-white/5 px-4 py-2 rounded-xl border border-white/5">
-            <Battery className="mr-2 h-4 w-4 text-emerald-400" />
+            <Battery className="mr-2 h-4 w-4 md:h-5 md:w-5 text-emerald-400" />
             {systemStatus.battery}%
           </div>
           <div className="hidden sm:flex text-[10px] font-black text-gray-400 items-center uppercase tracking-[0.2em] bg-white/5 px-4 py-2 rounded-xl border border-white/5">
-            {systemStatus.weather.condition.includes('Cloud') ? <CloudRain className="mr-2 h-4 w-4 text-blue-400" /> : <Sun className="mr-2 h-4 w-4 text-yellow-400" />}
+            {systemStatus.weather.condition.includes('Cloud') ? <CloudRain className="mr-2 h-4 w-4 md:h-5 md:w-5 text-blue-400" /> : <Sun className="mr-2 h-4 w-4 md:h-5 md:w-5 text-yellow-400" />}
             {systemStatus.weather.temp}°C
           </div>
         </div>
@@ -68,7 +68,7 @@ export function Dashboard() {
         <CardHeader className="pb-4 border-b border-white/10 relative z-10">
           <CardTitle className="text-white flex items-center text-xl font-black tracking-tighter uppercase">
             <div className="p-2 bg-white/10 rounded-lg mr-3">
-              <BrainCircuit className="h-5 w-5 text-indigo-300" /> 
+              <BrainCircuit className="h-5 w-5 md:h-6 md:w-6 text-indigo-300" /> 
             </div>
             Zenith Intelligence Feed
           </CardTitle>
@@ -77,28 +77,28 @@ export function Dashboard() {
         <CardContent className="pt-6 relative z-10">
           <div className="p-6 bg-white/5 backdrop-blur-xl rounded-2xl border border-white/10 shadow-inner">
             <p className="text-white leading-relaxed text-base font-bold italic tracking-tight">
-              <Sparkles className="inline-block mr-3 h-5 w-5 text-indigo-300 animate-pulse" />
+              <Sparkles className="inline-block mr-3 h-5 w-5 md:h-6 md:w-6 text-indigo-300 animate-pulse" />
               "{dynamicSummary}"
             </p>
           </div>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mt-8">
             <div className="p-4 rounded-2xl bg-gradient-to-br from-red-500/10 to-transparent border border-red-500/20 group/stat hover:bg-red-500/20 transition-all duration-300">
               <div className="flex items-center text-red-400 mb-2">
-                <Activity className="h-4 w-4 mr-2" />
+                <Activity className="h-4 w-4 md:h-5 md:w-5 mr-2" />
                 <span className="text-[10px] font-black uppercase tracking-widest">Health Alert</span>
               </div>
               <p className="text-xs text-gray-300 font-medium leading-relaxed">Recovery low (42%). Workout moved to tomorrow. Focus blocks protected.</p>
             </div>
             <div className="p-4 rounded-2xl bg-gradient-to-br from-emerald-500/10 to-transparent border border-emerald-500/20 group/stat hover:bg-emerald-500/20 transition-all duration-300">
               <div className="flex items-center text-emerald-400 mb-2">
-                <Wallet className="h-4 w-4 mr-2" />
+                <Wallet className="h-4 w-4 md:h-5 md:w-5 mr-2" />
                 <span className="text-[10px] font-black uppercase tracking-widest">Finance Status</span>
               </div>
               <p className="text-xs text-gray-300 font-medium leading-relaxed">Budget in-sync. Vanguard sweep completed. Goal tracking: 84% met.</p>
             </div>
             <div className="p-4 rounded-2xl bg-gradient-to-br from-blue-500/10 to-transparent border border-blue-500/20 group/stat hover:bg-blue-500/20 transition-all duration-300">
               <div className="flex items-center text-blue-400 mb-2">
-                <Target className="h-4 w-4 mr-2" />
+                <Target className="h-4 w-4 md:h-5 md:w-5 mr-2" />
                 <span className="text-[10px] font-black uppercase tracking-widest">Education Delta</span>
               </div>
               <p className="text-xs text-gray-300 font-medium leading-relaxed">45 ML flashcards due. Identified study window: 2PM-4PM Today.</p>
@@ -107,7 +107,7 @@ export function Dashboard() {
         </CardContent>
         <CardFooter className="bg-black/40 backdrop-blur-md border-t border-white/5 flex justify-between items-center py-4 relative z-10">
           <span className="text-[10px] font-black text-indigo-300 uppercase tracking-widest flex items-center">
-             <GitMerge className="h-3 w-3 mr-2 animate-spin-slow" /> 14 Automations active
+             <GitMerge className="h-3 w-3 md:h-4 md:w-4 mr-2 animate-spin-slow" /> 14 Automations active
           </span>
           <button className="px-4 py-1.5 rounded-full bg-white text-indigo-900 text-[10px] font-black uppercase tracking-widest hover:bg-indigo-300 transition-all">
             Review AI Settings
@@ -134,7 +134,7 @@ export function Dashboard() {
                 <CardDescription className="text-gray-500 font-bold text-[10px] uppercase tracking-widest mt-1">Real-time synchronized events</CardDescription>
               </div>
               <div className="p-2 bg-indigo-500/10 rounded-xl text-indigo-400 border border-indigo-500/20">
-                <Clock className="h-5 w-5" />
+                <Clock className="h-5 w-5 md:h-6 md:w-6" />
               </div>
             </CardHeader>
             <CardContent className="pt-6">
@@ -147,7 +147,7 @@ export function Dashboard() {
                 ].map((activity, i) => (
                   <div key={i} className="pl-10 relative">
                     <span className={`absolute -left-[18px] top-0 h-8 w-8 rounded-xl bg-[#121225] border border-white/5 flex items-center justify-center shadow-lg`}>
-                      <activity.icon className={`h-4 w-4 ${activity.color}`} />
+                      <activity.icon className={`h-4 w-4 md:h-5 md:w-5 ${activity.color}`} />
                     </span>
                     <p className="text-sm font-black text-white tracking-tight">{activity.text}</p>
                     <p className="text-[10px] font-bold text-gray-500 uppercase tracking-wider mt-1">{activity.time} • {activity.module}</p>
@@ -170,7 +170,7 @@ export function Dashboard() {
                    <div key={i} className="flex items-center justify-between group">
                      <div className="flex items-center">
                        <div className={`h-8 w-8 rounded-xl flex items-center justify-center mr-4 transition-all duration-300 ${habit.completedToday ? 'bg-indigo-600 text-white shadow-lg shadow-indigo-600/20' : 'bg-white/5 border border-white/10 text-gray-500 group-hover:border-indigo-500/50'}`}>
-                         {habit.completedToday ? <CheckCircle2 className="h-4 w-4" /> : <div className="h-1.5 w-1.5 bg-gray-500 rounded-full" />}
+                         {habit.completedToday ? <CheckCircle2 className="h-4 w-4 md:h-5 md:w-5" /> : <div className="h-1.5 w-1.5 bg-gray-500 rounded-full" />}
                        </div>
                        <span className={`text-sm font-bold ${habit.completedToday ? 'text-gray-300 line-through' : 'text-white'}`}>{habit.name}</span>
                      </div>
@@ -193,7 +193,7 @@ export function Dashboard() {
            <Card className="bg-[#121225] border-white/5 border shadow-xl">
              <CardHeader className="border-b border-white/5 pb-4">
                <CardTitle className="text-white text-[10px] font-black uppercase tracking-[0.2em] flex items-center">
-                 <Bell className="h-4 w-4 mr-2 text-red-500 animate-pulse" />
+                 <Bell className="h-4 w-4 md:h-5 md:w-5 mr-2 text-red-500 animate-pulse" />
                  Nearing Alerts
                </CardTitle>
              </CardHeader>
@@ -227,7 +227,7 @@ function MetricCard({ title, value, trend, icon: Icon, color, bgColor, border }:
       <div className="flex items-center justify-between">
         <p className="text-[10px] font-black text-gray-500 uppercase tracking-[0.2em]">{title}</p>
         <div className={`p-2 rounded-xl bg-white/5 border border-white/10 ${color} group-hover:scale-110 transition-transform`}>
-          <Icon className="h-5 w-5" />
+          <Icon className="h-5 w-5 md:h-6 md:w-6" />
         </div>
       </div>
       <div className="mt-6">

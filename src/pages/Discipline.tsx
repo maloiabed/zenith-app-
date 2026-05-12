@@ -61,7 +61,7 @@ export function Discipline() {
             <Card className="bg-black text-white border-indigo-500 shadow-[0_0_50px_rgba(99,102,241,0.3)]">
               <CardHeader className="pb-2 border-b border-white/10">
                 <CardTitle className="text-sm font-black uppercase tracking-widest flex items-center">
-                  <Zap className="h-4 w-4 mr-2 text-indigo-400" />
+                  <Zap className="h-4 w-4 md:h-5 md:w-5 mr-2 text-indigo-400" />
                   Zenith High-Priority
                 </CardTitle>
               </CardHeader>
@@ -89,14 +89,14 @@ export function Discipline() {
             onClick={() => setShowHabitForm(true)}
             className="flex items-center px-4 py-2 border border-white/10 bg-[#121225] text-white rounded-xl text-xs font-black uppercase tracking-widest hover:bg-white/5 transition-all shadow-xl"
           >
-            <Plus className="mr-2 h-4 w-4 text-indigo-400" />
+            <Plus className="mr-2 h-4 w-4 md:h-5 md:w-5 text-indigo-400" />
             Add Habit
           </button>
           <button 
             onClick={() => setShowTaskForm(true)}
             className="flex items-center px-4 py-2 bg-indigo-600 text-white rounded-xl text-xs font-black uppercase tracking-widest hover:bg-indigo-700 transition-all shadow-xl shadow-indigo-600/20"
           >
-            <Plus className="mr-2 h-4 w-4" />
+            <Plus className="mr-2 h-4 w-4 md:h-5 md:w-5" />
             New Task
           </button>
         </div>
@@ -116,7 +116,7 @@ export function Discipline() {
                   className="flex-1 px-4 py-2 border border-gray-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-black"
                 />
                 <button onClick={showTaskForm ? handleAddTask : handleAddHabit} className="px-4 py-2 bg-black text-white rounded-lg text-sm font-bold">Add</button>
-                <button onClick={() => { setShowTaskForm(false); setShowHabitForm(false); }} className="p-2 text-gray-400 hover:text-red-500"><X className="h-5 w-5" /></button>
+                <button onClick={() => { setShowTaskForm(false); setShowHabitForm(false); }} className="p-2 text-gray-400 hover:text-red-500"><X className="h-5 w-5 md:h-6 md:w-6" /></button>
               </div>
            </CardContent>
         </Card>
@@ -133,7 +133,7 @@ export function Discipline() {
                <div className="flex items-center justify-between">
                   <div className="flex items-center space-x-3">
                     <div className={cn("p-2 rounded-lg", notificationsEnabled ? "bg-indigo-600/20 text-indigo-400" : "bg-white/5 text-gray-600")}>
-                      <Bell className="h-4 w-4" />
+                      <Bell className="h-4 w-4 md:h-5 md:w-5" />
                     </div>
                     <span className="text-[11px] font-black uppercase tracking-widest">Protocol Popups</span>
                   </div>
@@ -147,7 +147,7 @@ export function Discipline() {
                <div className="flex items-center justify-between">
                   <div className="flex items-center space-x-3">
                     <div className={cn("p-2 rounded-lg", ringtonesEnabled ? "bg-indigo-600/20 text-indigo-400" : "bg-white/5 text-gray-600")}>
-                      <Volume2 className="h-4 w-4" />
+                      <Volume2 className="h-4 w-4 md:h-5 md:w-5" />
                     </div>
                     <span className="text-[11px] font-black uppercase tracking-widest">High-Tone Alerts</span>
                   </div>
@@ -161,7 +161,7 @@ export function Discipline() {
                <div className="flex items-center justify-between">
                   <div className="flex items-center space-x-3">
                     <div className={cn("p-2 rounded-lg", overrideActive ? "bg-red-600/20 text-red-400" : "bg-white/5 text-gray-600")}>
-                      <ShieldAlert className="h-4 w-4" />
+                      <ShieldAlert className="h-4 w-4 md:h-5 md:w-5" />
                     </div>
                     <span className="text-[11px] font-black uppercase tracking-widest">App Override</span>
                   </div>
@@ -185,7 +185,7 @@ export function Discipline() {
           <Card className="bg-[#121225] border-white/5 text-white">
             <CardHeader className="border-b border-white/5">
               <CardTitle className="text-xs font-black uppercase tracking-[0.2em] text-red-400 flex items-center">
-                <Clock className="h-3 w-3 mr-2" />
+                <Clock className="h-3 w-3 md:h-4 md:w-4 mr-2" />
                 Nearing Protocols
               </CardTitle>
             </CardHeader>
@@ -202,7 +202,7 @@ export function Discipline() {
                       </span>
                     </div>
                   </div>
-                  <Bell className="h-3.5 w-3.5 text-gray-600 group-hover:text-indigo-400 transition-colors" />
+                  <Bell className="h-3.5 w-3.5 md:h-4 md:w-4 text-gray-600 group-hover:text-indigo-400 transition-colors" />
                 </div>
               ))}
             </CardContent>
@@ -231,7 +231,7 @@ export function Discipline() {
                               : "border-gray-200 group-hover:border-gray-400 bg-white"
                           )}
                         >
-                          {habit.completedToday && <CheckCircle2 className="h-4 w-4" />}
+                          {habit.completedToday && <CheckCircle2 className="h-4 w-4 md:h-5 md:w-5" />}
                         </button>
                         <span className={cn(
                           "ml-3 text-sm font-medium transition-colors",
@@ -241,7 +241,7 @@ export function Discipline() {
                         </span>
                       </div>
                       <div className="flex items-center bg-orange-50 px-2 py-0.5 rounded-full text-orange-600 text-xs font-bold">
-                        <Flame className="h-3 w-3 mr-1" />
+                        <Flame className="h-3 w-3 md:h-4 md:w-4 mr-1" />
                         {habit.streak}
                       </div>
                     </div>
@@ -260,7 +260,7 @@ export function Discipline() {
           <Card className="bg-gradient-to-br from-indigo-500 to-purple-600 text-white border-none shadow-lg">
             <CardHeader>
               <CardTitle className="text-white flex items-center">
-                <Award className="mr-2 h-5 w-5" />
+                <Award className="mr-2 h-5 w-5 md:h-6 md:w-6" />
                 Momentum Score
               </CardTitle>
             </CardHeader>
@@ -295,7 +295,7 @@ export function Discipline() {
                       <h4 className="text-sm font-semibold text-gray-900">{task.title}</h4>
                       <div className="flex items-center mt-1 space-x-3">
                         <span className="text-xs text-gray-500 flex items-center">
-                          <Clock className="h-3 w-3 mr-1" /> {task.dueDate || 'Today'}
+                          <Clock className="h-3 w-3 md:h-4 md:w-4 mr-1" /> {task.dueDate || 'Today'}
                         </span>
                         <span className={`text-[10px] uppercase font-bold tracking-wider px-1.5 py-0.5 rounded ${
                           task.priority === 'high' ? 'bg-red-50 text-red-600' : 'bg-blue-50 text-blue-600'

@@ -3,6 +3,7 @@ import { Briefcase, CreditCard, Users, LineChart, Plus, ArrowUpRight, DollarSign
 import { useZenithStore } from '@/src/store/zenithStore';
 import { useState } from 'react';
 import { motion, AnimatePresence } from 'motion/react';
+import { cn } from '@/src/lib/utils';
 
 export function Business() {
   const { projects, addProject } = useZenithStore();

@@ -1,5 +1,26 @@
 import { Card, CardContent, CardDescription, CardHeader, CardTitle, CardFooter } from '@/src/components/ui/card';
-import { MessageSquare, Send, Search, Plus, Filter, User, Reply, History, Zap, Info, Loader2, X, Github, Globe, CreditCard, Link as LinkIcon, Unlink } from 'lucide-react';
+import { 
+  MessageSquare, 
+  Send, 
+  Search, 
+  Plus, 
+  Filter, 
+  User, 
+  Reply, 
+  History, 
+  Zap, 
+  Info, 
+  Loader2, 
+  X, 
+  Github, 
+  Globe, 
+  CreditCard, 
+  Link as LinkIcon, 
+  Unlink,
+  Shield,
+  Clock,
+  ChevronRight
+} from 'lucide-react';
 import { useZenithStore } from '@/src/store/zenithStore';
 import { useState } from 'react';
 import { motion, AnimatePresence } from 'motion/react';
@@ -77,11 +98,11 @@ export function Communication() {
             onClick={() => { setIsAdding(!isAdding); setIsLinking(false); }}
             className="flex items-center px-6 py-3 bg-white border border-gray-200 text-gray-700 rounded-xl text-xs font-black uppercase tracking-widest hover:bg-gray-50 transition-all shadow-sm"
           >
-            {isAdding ? <X className="mr-2 h-4 w-4 text-indigo-600" /> : <Plus className="mr-2 h-4 w-4 text-indigo-600" />}
+            {isAdding ? <X className="mr-2 h-4 w-4 md:h-5 md:w-5 text-indigo-600" /> : <Plus className="mr-2 h-4 w-4 md:h-5 md:w-5 text-indigo-600" />}
             {isAdding ? 'Cancel' : 'New Thread'}
           </button>
           <button className="flex items-center px-6 py-3 bg-indigo-600 text-white rounded-xl text-xs font-black uppercase tracking-widest hover:bg-indigo-700 transition-all shadow-xl shadow-indigo-600/20">
-            <Zap className="mr-2 h-4 w-4" />
+            <Zap className="mr-2 h-4 w-4 md:h-5 md:w-5" />
             AI Draft Queue
           </button>
         </div>
@@ -166,7 +187,7 @@ export function Communication() {
         <div className="lg:col-span-2 space-y-6">
           <div className="flex items-center space-x-3 bg-white p-3 rounded-2xl border border-gray-100 shadow-sm">
               <div className="relative flex-1">
-                <Search className="absolute left-4 top-3.5 h-4 w-4 text-gray-400" />
+                <Search className="absolute left-4 top-3.5 h-4 w-4 md:h-5 md:w-5 text-gray-400" />
                 <input 
                   type="text" 
                   placeholder="Scan interaction logs..." 
@@ -174,7 +195,7 @@ export function Communication() {
                 />
               </div>
               <button className="h-12 w-12 flex items-center justify-center text-gray-400 hover:text-indigo-600 border border-gray-100 rounded-xl hover:bg-indigo-50 transition-all">
-                <Filter className="h-5 w-5" />
+                <Filter className="h-5 w-5 md:h-6 md:w-6" />
               </button>
           </div>
 
@@ -203,23 +224,23 @@ export function Communication() {
                       <p className="text-gray-500 mt-2 leading-relaxed max-w-lg font-medium">{thread.content}</p>
                       <div className="flex items-center space-x-4 mt-4">
                          <div className="flex items-center space-x-2">
-                           <Clock className="h-3 w-3 text-gray-300" />
+                           <Clock className="h-3 w-3 md:h-4 md:w-4 text-gray-300" />
                            <span className="text-[10px] font-black text-gray-400 uppercase tracking-widest">{thread.timestamp}</span>
                          </div>
                          <span className="text-gray-200">/</span>
                          <button className="text-[10px] font-black text-indigo-600 hover:text-gray-900 uppercase tracking-widest transition-colors flex items-center">
                             Neural Archive
-                            <ChevronRight className="h-3 w-3 ml-1" />
+                            <ChevronRight className="h-3 w-3 md:h-4 md:w-4 ml-1" />
                          </button>
                       </div>
                     </div>
                   </div>
                   <div className="flex flex-col space-y-2 shrink-0">
                      <button className="p-3 text-gray-300 hover:text-indigo-600 hover:bg-indigo-50 rounded-xl transition-all border border-transparent hover:border-indigo-100">
-                        <Reply className="h-6 w-6" />
+                        <Reply className="h-6 w-6 md:h-7 md:w-7" />
                      </button>
                      <button className="p-3 text-gray-300 hover:text-gray-900 hover:bg-gray-100 rounded-xl transition-all border border-transparent hover:border-gray-200 text-gray-400">
-                        <History className="h-6 w-6" />
+                        <History className="h-6 w-6 md:h-7 md:w-7" />
                      </button>
                   </div>
                 </motion.div>
@@ -233,7 +254,7 @@ export function Communication() {
              <div className="bg-[#1e293b] rounded-[inherit] p-8">
                <CardHeader className="p-0 pb-6 border-b border-white/5">
                   <CardTitle className="text-[11px] font-black text-indigo-400 uppercase tracking-[0.2em] flex items-center">
-                     <Zap className="h-4 w-4 mr-3 animate-pulse" />
+                     <Zap className="h-4 w-4 md:h-5 md:w-5 mr-3 animate-pulse" />
                      AI Draft Proxy
                   </CardTitle>
                </CardHeader>
@@ -279,7 +300,7 @@ export function Communication() {
                      <div key={account.id} className="flex items-center justify-between p-4 rounded-2xl bg-white/5 border border-white/5 hover:border-indigo-500/30 transition-all group/item hover:bg-white/10">
                        <div className="flex items-center space-x-4 flex-1">
                          <div className="h-12 w-12 bg-black/60 rounded-xl flex items-center justify-center border border-white/5 shadow-inner grow-0 shrink-0">
-                           <Icon className="h-5 w-5 text-indigo-400 group-hover/item:text-white transition-colors" />
+                           <Icon className="h-5 w-5 md:h-6 md:w-6 text-indigo-400 group-hover/item:text-white transition-colors" />
                          </div>
                          <div className="flex-1">
                            {isEditing ? (
@@ -315,7 +336,7 @@ export function Communication() {
                               account.status === 'connected' ? 'text-red-400 border-red-500/20 hover:bg-red-500/10' : 'text-emerald-400 border-emerald-500/20 hover:bg-emerald-500/10'
                             )}
                           >
-                            {account.status === 'connected' ? <Unlink className="h-4 w-4" /> : <LinkIcon className="h-4 w-4" />}
+                            {account.status === 'connected' ? <Unlink className="h-4 w-4 md:h-5 md:w-5" /> : <LinkIcon className="h-4 w-4 md:h-5 md:w-5" />}
                           </button>
                        </div>
                      </div>
@@ -353,7 +374,7 @@ function MetricCard({ title, value, trend, icon: Icon, color }: any) {
             <p className={cn("text-[9px] font-black uppercase tracking-widest mt-1", color)}>{trend}</p>
           </div>
           <div className={cn("p-3 rounded-2xl border transition-all shadow-sm bg-current bg-opacity-5 border-current border-opacity-10", color)}>
-            <Icon className="h-5 w-5" />
+            <Icon className="h-5 w-5 md:h-6 md:w-6" />
           </div>
         </div>
       </CardContent>

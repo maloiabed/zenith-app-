@@ -19,7 +19,7 @@ export function Timeline() {
         </div>
         <div className="flex items-center space-x-3">
            <div className="relative">
-              <Search className="absolute left-2.5 top-2.5 h-4 w-4 text-gray-400" />
+              <Search className="absolute left-2.5 top-2.5 h-4 w-4 md:h-5 md:w-5 text-gray-400" />
               <input 
                 type="text" 
                 placeholder="Search history..." 
@@ -27,7 +27,7 @@ export function Timeline() {
               />
            </div>
            <button className="p-2 text-gray-500 hover:bg-gray-100 rounded-lg transition-colors border border-gray-200">
-             <Filter className="h-4 w-4" />
+             <Filter className="h-4 w-4 md:h-5 md:w-5" />
            </button>
         </div>
       </div>
@@ -38,8 +38,8 @@ export function Timeline() {
           <div className="relative pl-8 space-y-12 before:absolute before:left-[11px] before:top-2 before:bottom-0 before:w-[2px] before:bg-gray-100">
              {events.map((event, i) => (
                 <div key={i} className="relative">
-                   <div className={`absolute -left-11 h-6 w-6 rounded-full bg-white border-2 border-gray-100 flex items-center justify-center z-10 transition-colors hover:border-indigo-500`}>
-                      <event.icon className={`h-3 w-3 ${event.color}`} />
+                   <div className={`absolute -left-11 h-6 w-6 md:h-8 md:w-8 md:-left-[44px] rounded-full bg-white border-2 border-gray-100 flex items-center justify-center z-10 transition-colors hover:border-indigo-500`}>
+                      <event.icon className={`h-3 w-3 md:h-4 md:w-4 ${event.color}`} />
                    </div>
                    <div className="flex flex-col sm:flex-row sm:items-baseline sm:justify-between group">
                       <div className="space-y-1">
@@ -77,7 +77,7 @@ export function Timeline() {
            <Card className="bg-gradient-to-br from-indigo-600 to-purple-600 text-white border-none shadow-xl shadow-indigo-100">
               <CardHeader>
                  <CardTitle className="text-sm flex items-center">
-                    <Clock className="h-4 w-4 mr-2" />
+                    <Clock className="h-4 w-4 md:h-5 md:w-5 mr-2" />
                     Archive Intelligence
                  </CardTitle>
               </CardHeader>

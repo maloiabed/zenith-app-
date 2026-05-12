@@ -31,7 +31,7 @@ export function Automations() {
           onClick={() => setIsAdding(!isAdding)}
           className="flex items-center px-4 py-2 bg-indigo-600 text-white rounded-lg text-sm font-medium hover:bg-indigo-700 transition-colors shadow-sm"
         >
-          {isAdding ? <X className="mr-2 h-4 w-4" /> : <Plus className="mr-2 h-4 w-4" />}
+          {isAdding ? <X className="mr-2 h-4 w-4 md:h-5 md:w-5" /> : <Plus className="mr-2 h-4 w-4 md:h-5 md:w-5" />}
           {isAdding ? 'Cancel' : 'Create New Rule'}
         </button>
       </div>
@@ -83,21 +83,21 @@ export function Automations() {
       <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
         <Card className="p-4 flex flex-col justify-between min-h-[140px] bg-indigo-50 border-indigo-100">
            <div>
-              <GitMerge className="h-6 w-6 text-indigo-600 mb-3" />
+              <GitMerge className="h-6 w-6 md:h-7 md:w-7 text-indigo-600 mb-3" />
               <div className="text-2xl font-black text-gray-900">421</div>
               <p className="text-xs text-gray-500 font-medium">Executions this month</p>
            </div>
         </Card>
         <Card className="p-4 flex flex-col justify-between min-h-[140px]">
            <div>
-              <Zap className="h-6 w-6 text-yellow-500 mb-3" />
+              <Zap className="h-6 w-6 md:h-7 md:w-7 text-yellow-500 mb-3" />
               <div className="text-2xl font-black text-gray-900">12s</div>
               <p className="text-xs text-gray-500 font-medium">Avg. response latency</p>
            </div>
         </Card>
         <Card className="p-4 flex flex-col justify-between min-h-[140px]">
            <div>
-              <CheckCircle2 className="h-6 w-6 text-green-500 mb-3" />
+              <CheckCircle2 className="h-6 w-6 md:h-7 md:w-7 text-green-500 mb-3" />
               <div className="text-2xl font-black text-gray-900">100%</div>
               <p className="text-xs text-gray-500 font-medium">Rule success rate</p>
            </div>
@@ -116,7 +116,7 @@ export function Automations() {
                  <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4">
                     <div className="flex items-center space-x-4">
                        <div className="h-10 w-10 bg-gray-50 rounded-lg flex items-center justify-center text-gray-400 group-hover:bg-indigo-50 group-hover:text-indigo-600 transition-colors">
-                          <GitMerge className="h-5 w-5" />
+                          <GitMerge className="h-5 w-5 md:h-6 md:w-6" />
                        </div>
                        <div>
                           <h4 className="text-sm font-bold text-gray-900">{rule.name}</h4>
@@ -131,10 +131,10 @@ export function Automations() {
                     <div className="flex items-center space-x-3 self-end sm:self-center">
                        <span className="px-2 py-0.5 bg-green-50 text-green-600 text-[10px] font-bold rounded uppercase">{rule.status}</span>
                        <button className="p-2 text-gray-300 hover:text-gray-600 transition-colors">
-                          <Settings className="h-4 w-4" />
+                          <Settings className="h-4 w-4 md:h-5 md:w-5" />
                        </button>
                        <button className="p-2 bg-indigo-600 text-white rounded-lg hover:bg-indigo-700 transition-colors shadow-sm">
-                          <Play className="h-3 w-3 fill-current" />
+                          <Play className="h-3 w-3 md:h-4 md:w-4 fill-current" />
                        </button>
                     </div>
                  </div>
@@ -147,7 +147,7 @@ export function Automations() {
       <Card className="bg-black text-white relative overflow-hidden">
          <CardHeader className="relative z-10">
             <CardTitle className="text-sm flex items-center">
-              <Info className="h-4 w-4 mr-2 text-indigo-400" />
+              <Info className="h-4 w-4 md:h-5 md:w-5 mr-2 text-indigo-400" />
               Machine Learning Suggestions
             </CardTitle>
          </CardHeader>

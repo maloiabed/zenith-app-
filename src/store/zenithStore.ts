@@ -229,6 +229,11 @@ interface ZenithState {
   automations: AutomationRule[];
   biometrics: BiometricsData;
   userProfile: UserProfile;
+  auth: {
+    user: any | null;
+    isAuthenticated: boolean;
+    isChecking: boolean;
+  };
   systemStatus: {
     battery: number;
     weather: { temp: number; condition: string; forecast: string };
@@ -265,6 +270,7 @@ interface ZenithState {
   addDocument: (doc: Omit<LifeDocument, 'id' | 'date' | 'status'>) => void;
   addSemester: (sem: Omit<Semester, 'id'>) => void;
   addCourseUnit: (unit: Omit<CourseUnit, 'id' | 'documents'>) => void;
+  updateCourseUnit: (id: string, updates: Partial<Omit<CourseUnit, 'id'>>) => void;
   linkDocumentToUnit: (unitId: string, docId: string) => void;
   addFinancialAccount: (account: Omit<FinancialAccount, 'id' | 'status' | 'linkedAt'>) => void;
   verifyFinancialAccount: (id: string) => void;
@@ -272,6 +278,7 @@ interface ZenithState {
   updateBiometrics: (data: Partial<BiometricsData>) => void;
   updateProfile: (data: Partial<UserProfile>) => void;
   updateSystemStatus: (data: Partial<ZenithState['systemStatus']>) => void;
+  setAuth: (user: any) => void;
   toggleLinkedAccount: (id: string) => void;
   updatePrinciples: (principles: string[]) => void;
   
@@ -404,6 +411,11 @@ export const useZenithStore = create<ZenithState>()(
         ],
         priorities: ['Strategic Momentum', 'Physical Vitality', 'Knowledge Compounding'],
         productivityStyle: 'High-intensity morning focus with contemplative evening reflection. Prefers asynchronous communication.'
+      },
+      auth: {
+        user: null,
+        isAuthenticated: false,
+        isChecking: true,
       },
       systemStatus: {
         battery: 88,
@@ -591,6 +603,10 @@ export const useZenithStore = create<ZenithState>()(
       addCourseUnit: (unit) => set((state) => ({
         courseUnits: [...(state.courseUnits || []), { ...unit, id: Math.random().toString(36).substr(2, 9), documents: [] }]
       })),
+      
+      updateCourseUnit: (id, updates) => set((state) => ({
+        courseUnits: state.courseUnits.map(u => u.id === id ? { ...u, ...updates } : u)
+      })),
 
       linkDocumentToUnit: (unitId, docId) => set((state) => ({
         courseUnits: state.courseUnits.map(u => u.id === unitId ? { ...u, documents: [...u.documents, docId] } : u)
@@ -616,6 +632,13 @@ export const useZenithStore = create<ZenithState>()(
       })),
       updateSystemStatus: (data) => set((state) => ({
         systemStatus: { ...state.systemStatus, ...data }
+      })),
+      setAuth: (user) => set(() => ({
+        auth: {
+          user,
+          isAuthenticated: !!user,
+          isChecking: false
+        }
       })),
       toggleLinkedAccount: (id) => set((state) => ({
         systemStatus: {

@@ -25,7 +25,7 @@ export function Jobs() {
       addOpportunity({
         title: `Strategic Match: ${formData.role}`,
         company: `${formData.company} Competitor`,
-        type: 'Career',
+        type: 'referral',
         value: 120000,
         status: 'warm'
       });

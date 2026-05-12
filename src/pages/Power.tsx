@@ -20,7 +20,7 @@ const FloorPlanPin = ({ top, left, label, status, icon: Icon }: any) => (
       <div className={`p-1.5 rounded-full shadow-lg border-2 border-white transition-all transform group-hover:scale-110 ${
         status === 'high' ? 'bg-red-500' : status === 'active' ? 'bg-green-500' : 'bg-gray-400'
       }`}>
-        <Icon className="h-3 w-3 text-white" />
+        <Icon className="h-3 w-3 md:h-4 md:w-4 text-white" />
       </div>
       <div className="absolute top-full mt-2 bg-black/80 backdrop-blur-md text-white text-[9px] font-black uppercase tracking-widest px-2 py-1 rounded border border-white/20 opacity-0 group-hover:opacity-100 transition-opacity whitespace-nowrap z-50">
         {label} {status === 'high' ? '!!' : ''}
@@ -76,28 +76,28 @@ export function Power() {
         
         <div className="flex flex-wrap items-center gap-4 bg-white/50 border border-gray-100 p-2 rounded-2xl backdrop-blur-xl shadow-lg">
           <div className="px-4 py-2 bg-gray-900 text-white rounded-xl flex items-center space-x-3">
-             <ClockIcon className="h-4 w-4 text-indigo-400" />
+             <ClockIcon className="h-4 w-4 md:h-5 md:w-5 text-indigo-400" />
              <div className="text-sm font-black italic tracking-widest tabular-nums uppercase">
                 {currentTime.toLocaleTimeString([], { hour: '2-digit', minute: '2-digit', second: '2-digit', hour12: false })}
              </div>
           </div>
           
           <div className="px-4 py-2 bg-white rounded-xl border border-gray-100 flex items-center space-x-3 group cursor-help">
-             <Battery className="h-4 w-4 text-emerald-500 animate-pulse" />
+             <Battery className="h-4 w-4 md:h-5 md:w-5 text-emerald-500 animate-pulse" />
              <div className="text-xs font-black text-gray-900 uppercase tracking-tighter">94% Core</div>
           </div>
 
           <div className="px-4 py-2 bg-white rounded-xl border border-gray-100 flex items-center space-x-3">
-             <Sun className="h-4 w-4 text-orange-400" />
+             <Sun className="h-4 w-4 md:h-5 md:w-5 text-orange-400" />
              <div className="text-xs font-black text-gray-900 uppercase tracking-tighter">24°C High Alpha</div>
           </div>
 
           <div className="flex space-x-1">
             <button className="p-2.5 bg-gray-50 text-gray-400 rounded-xl hover:bg-red-50 hover:text-red-500 transition-all border border-gray-100">
-               <BellOff className="h-4 w-4" />
+               <BellOff className="h-4 w-4 md:h-5 md:w-5" />
             </button>
             <button className="p-2.5 bg-indigo-50 text-indigo-600 rounded-xl border border-indigo-100 shadow-inner">
-               <Bell className="h-4 w-4" />
+               <Bell className="h-4 w-4 md:h-5 md:w-5" />
             </button>
           </div>
         </div>
@@ -214,7 +214,7 @@ export function Power() {
                      <div className="text-[10px] font-black text-gray-500 uppercase tracking-widest mb-2">Aggregate Cycles</div>
                      <div className="flex items-center justify-between">
                         <div className="text-2xl font-black text-white italic tracking-tighter">112.4 <span className="text-[10px] text-gray-600 uppercase">kWh</span></div>
-                        <TrendingUp className="h-5 w-5 text-indigo-400 group-hover:scale-110 transition-transform" />
+                        <TrendingUp className="h-5 w-5 md:h-6 md:w-6 text-indigo-400 group-hover:scale-110 transition-transform" />
                      </div>
                   </div>
                   <div className="bg-black/20 p-5 rounded-2xl border border-white/5 group hover:border-orange-500/20 transition-all">
@@ -381,7 +381,7 @@ function MetricCard({ title, value, trend, icon: Icon, color }: any) {
             <p className={cn("text-[9px] font-black uppercase tracking-widest mt-1", color)}>{trend}</p>
           </div>
           <div className={cn("p-3 rounded-2xl border transition-all shadow-sm bg-current bg-opacity-5 border-current border-opacity-10", color)}>
-            <Icon className="h-5 w-5" />
+            <Icon className="h-5 w-5 md:h-6 md:w-6" />
           </div>
         </div>
       </CardContent>

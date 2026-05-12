@@ -1,5 +1,18 @@
-import { CheckCircle as CircleCheck } from 'lucide-react';
+import { useState } from 'react';
+import { 
+  CheckCircle as CircleCheck, 
+  Activity, 
+  Plus, 
+  Zap, 
+  Moon, 
+  Heart, 
+  TrendingUp, 
+  Apple 
+} from 'lucide-react';
 import { cn } from '@/src/lib/utils';
+import { useZenithStore } from '@/src/store/zenithStore';
+import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/src/components/ui/card';
+import { motion, AnimatePresence } from 'motion/react';
 
 export function Health() {
   const { healthLogs, addHealthLog } = useZenithStore();
@@ -28,11 +41,11 @@ export function Health() {
             onClick={() => setIsLogging(!isLogging)}
             className="flex items-center px-6 py-3 bg-white border border-gray-200 text-gray-700 rounded-xl text-xs font-black uppercase tracking-widest hover:bg-gray-50 transition-all shadow-sm"
           >
-            <Plus className="mr-2 h-4 w-4" />
+            <Plus className="mr-2 h-4 w-4 md:h-5 md:w-5" />
             {isLogging ? 'Cancel' : 'Manual Entry'}
           </button>
           <button className="flex items-center px-6 py-3 bg-red-600 text-white rounded-xl text-xs font-black uppercase tracking-widest hover:bg-red-700 transition-all shadow-xl shadow-red-600/20">
-            <Activity className="mr-2 h-4 w-4" />
+            <Activity className="mr-2 h-4 w-4 md:h-5 md:w-5" />
             Sync Wearable
           </button>
         </div>
@@ -100,7 +113,7 @@ export function Health() {
             </CardHeader>
             <CardContent className="p-6">
               <div className="h-[300px] w-full bg-gray-50/50 flex flex-col items-center justify-center rounded-2xl border border-dashed border-gray-200 group">
-                <Activity className="h-12 w-12 text-gray-200 group-hover:scale-110 group-hover:text-red-200 transition-all duration-1000 mb-4" />
+                <Activity className="h-12 w-12 md:h-16 md:w-16 text-gray-200 group-hover:scale-110 group-hover:text-red-200 transition-all duration-1000 mb-4" />
                 <span className="text-[10px] font-black uppercase tracking-[0.3em] text-gray-300">Biometric Overlay Rendering...</span>
               </div>
               <div className="grid grid-cols-2 gap-6 mt-6">
@@ -108,14 +121,14 @@ export function Health() {
                     <h5 className="text-[10px] font-black text-gray-400 uppercase tracking-widest mb-3">Sleep Variance</h5>
                     <div className="flex items-center justify-between">
                       <p className="text-lxl font-black text-gray-900 uppercase italic tracking-tighter">+12m</p>
-                      <CircleCheck className="h-5 w-5 text-emerald-500" />
+                      <CircleCheck className="h-5 w-5 md:h-6 md:w-6 text-emerald-500" />
                     </div>
                  </div>
                  <div className="p-5 bg-gray-50/50 rounded-2xl border border-gray-100 group hover:border-red-100 transition-colors">
                     <h5 className="text-[10px] font-black text-gray-400 uppercase tracking-widest mb-3">Resting Heart Rate</h5>
                     <div className="flex items-center justify-between">
                       <p className="text-lxl font-black text-gray-900 uppercase italic tracking-tighter">52 BPM</p>
-                      <Heart className="h-5 w-5 text-red-500 animate-pulse" />
+                      <Heart className="h-5 w-5 md:h-6 md:w-6 text-red-500 animate-pulse" />
                     </div>
                  </div>
               </div>
@@ -130,7 +143,7 @@ export function Health() {
             </div>
             <CardHeader className="border-b border-white/5 pb-4 relative z-10">
               <CardTitle className="text-[10px] font-black text-indigo-400 uppercase tracking-[0.2em] flex items-center">
-                <Apple className="mr-2 h-4 w-4" />
+                <Apple className="mr-2 h-4 w-4 md:h-5 md:w-5" />
                 Nutrition Protocol
               </CardTitle>
             </CardHeader>
@@ -139,7 +152,7 @@ export function Health() {
                 <h6 className="text-[10px] font-black text-gray-500 uppercase tracking-widest mb-1">Target Window</h6>
                 <p className="text-lg font-black text-white italic uppercase tracking-tight">12:00 PM – 08:00 PM</p>
                 <div className="mt-3 flex items-center text-[10px] font-bold text-indigo-400 bg-indigo-500/10 w-fit px-3 py-1 rounded-full border border-indigo-500/20">
-                  <Moon className="h-3 w-3 mr-1.5" /> Fasted State Active
+                  <Moon className="h-3 w-3 md:h-4 md:w-4 mr-1.5" /> Fasted State Active
                 </div>
               </div>
               
@@ -207,7 +220,7 @@ function HealthMetricCard({ title, value, trend, icon: Icon, color, bg }: any) {
             </p>
           </div>
           <div className={cn("p-3 rounded-2xl shadow-inner border", bg, color, "border-current border-opacity-10")}>
-            <Icon className="h-6 w-6" />
+            <Icon className="h-6 w-6 md:h-7 md:w-7" />
           </div>
         </div>
       </CardContent>

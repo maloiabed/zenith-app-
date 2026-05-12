@@ -25,6 +25,7 @@ import { Documents } from './pages/Documents';
 import { Automations } from './pages/Automations';
 import { IoT } from './pages/IoT';
 import { Notes } from './pages/Notes';
+import SystemReport from './pages/SystemReport';
 import { BootLoader } from './components/BootSequence';
 import { ErrorBoundary } from './components/ErrorBoundary';
 
@@ -62,10 +63,16 @@ export default function App() {
           <Route path="jobs/*" element={<Jobs />} />
           <Route path="notes/*" element={<Notes />} />
           
+          {/* Preset Generic Modules */}
+          <Route path="labs/*" element={<GenericModule title="Labs" description="Experimental features and neural prototypes." />} />
+          <Route path="network/*" element={<GenericModule title="Network" description="Monitoring relational throughput and node health." />} />
+          <Route path="archive/*" element={<GenericModule title="Archive" description="Long-term indexing of life events and documents." />} />
+          
           {/* Intelligence Layer */}
           <Route path="iot/*" element={<IoT />} />
           <Route path="biometrics/*" element={<Biometrics />} />
           <Route path="documents/*" element={<Documents />} />
+          <Route path="backend-report/*" element={<SystemReport />} />
 
           <Route path="settings/*" element={<Profile />} />
           <Route path="*" element={<Navigate to="/" replace />} />

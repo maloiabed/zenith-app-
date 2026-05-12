@@ -30,8 +30,7 @@ export function Finance() {
       name: accountForm.name,
       type: accountForm.type,
       identifier: accountForm.identifier,
-      balance: 0,
-      status: 'pending' // Initialize as pending per security requirement
+      balance: 0
     });
     setAccountForm({ name: '', type: 'bank', identifier: '' });
     setIsLinkingAccount(false);
@@ -67,14 +66,14 @@ export function Finance() {
             className="flex items-center px-6 py-3 bg-white border border-gray-200 text-gray-700 rounded-xl text-xs font-black uppercase tracking-widest hover:bg-gray-50 transition-all shadow-sm"
             onClick={() => setIsLinkingAccount(true)}
           >
-            <Plus className="mr-2 h-4 w-4 text-indigo-600" />
+            <Plus className="mr-2 h-4 w-4 md:h-5 md:w-5 text-indigo-600" />
             Integrate Service
           </button>
           <button 
             className="flex items-center px-6 py-3 bg-indigo-600 text-white rounded-xl text-xs font-black uppercase tracking-widest hover:bg-indigo-700 transition-all shadow-xl shadow-indigo-600/20"
             onClick={() => setIsAddingTx(true)}
           >
-            <Plus className="mr-2 h-4 w-4" />
+            <Plus className="mr-2 h-4 w-4 md:h-5 md:w-5" />
             Commit Entry
           </button>
         </div>
@@ -92,13 +91,13 @@ export function Finance() {
             </CardHeader>
             <CardContent className="relative z-10">
               <div className="flex items-center text-[10px] font-black uppercase tracking-widest text-emerald-400 bg-emerald-400/10 w-fit px-2 py-1 rounded-md border border-emerald-400/20">
-                <TrendingUp className="h-3 w-3 mr-1.5" />
+                <TrendingUp className="h-3 w-3 md:h-4 md:w-4 mr-1.5" />
                 +2.4% Strategic Momentum
               </div>
             </CardContent>
             <CardFooter className="pt-4 border-t border-white/5 bg-white/5 flex justify-between items-center px-6">
               <div className="text-[9px] font-black uppercase tracking-widest text-gray-500 italic">Sync: Real-time</div>
-              <Activity className="h-3 w-3 text-indigo-500 animate-pulse" />
+              <Activity className="h-3 w-3 md:h-4 md:w-4 text-indigo-500 animate-pulse" />
             </CardFooter>
           </Card>
 
@@ -117,7 +116,7 @@ export function Finance() {
                           "h-12 w-12 rounded-2xl flex items-center justify-center shrink-0 border transition-all shadow-sm",
                           account.status === 'verified' ? 'bg-indigo-50 text-indigo-600 border-indigo-100' : 'bg-orange-50 text-orange-600 border-orange-100'
                         )}>
-                          {account.type === 'bank' ? <Landmark className="h-6 w-6" /> : <Smartphone className="h-6 w-6" />}
+                          {account.type === 'bank' ? <Landmark className="h-6 w-6 md:h-7 md:w-7" /> : <Smartphone className="h-6 w-6 md:h-7 md:w-7" />}
                         </div>
                         <div className="ml-4">
                           <p className="text-sm font-black text-gray-900 uppercase italic tracking-tight">{account.name}</p>
@@ -125,7 +124,7 @@ export function Finance() {
                         </div>
                       </div>
                       {account.status === 'verified' ? (
-                        <CheckCircle2 className="h-5 w-5 text-emerald-500" />
+                        <CheckCircle2 className="h-5 w-5 md:h-6 md:w-6 text-emerald-500" />
                       ) : (
                         <button 
                           onClick={() => handleVerify(account.id)}
@@ -189,7 +188,7 @@ export function Finance() {
             <Card className="border-none shadow-sm bg-[#121121] text-white overflow-hidden p-0">
                <CardHeader className="px-8 pt-8 pb-4 border-b border-white/5">
                   <CardTitle className="text-[10px] font-black text-indigo-400 uppercase tracking-widest flex items-center">
-                    <ShieldCheck className="h-3.5 w-3.5 mr-2" />
+                    <ShieldCheck className="h-3.5 w-3.5 md:h-4 md:w-4 mr-2" />
                     Security Protocols
                   </CardTitle>
                </CardHeader>
@@ -197,26 +196,26 @@ export function Finance() {
                   <div className="flex items-center justify-between group">
                     <div className="flex items-center space-x-4">
                       <div className="h-10 w-10 rounded-xl bg-indigo-500/10 flex items-center justify-center border border-indigo-500/20 group-hover:bg-indigo-500/20 transition-all">
-                        <Lock className="h-5 w-5 text-indigo-400" />
+                        <Lock className="h-5 w-5 md:h-6 md:w-6 text-indigo-400" />
                       </div>
                       <div>
                         <div className="text-[11px] font-black uppercase italic tracking-tight">Active 2FA Protocol</div>
                         <div className="text-[9px] font-bold text-gray-500 uppercase tracking-widest mt-0.5">Mobile links secured via Biometrics</div>
                       </div>
                     </div>
-                    <CheckCircle2 className="h-4 w-4 text-emerald-500" />
+                    <CheckCircle2 className="h-4 w-4 md:h-5 md:w-5 text-emerald-500" />
                   </div>
                   <div className="flex items-center justify-between group">
                     <div className="flex items-center space-x-4">
                       <div className="h-10 w-10 rounded-xl bg-emerald-500/10 flex items-center justify-center border border-emerald-500/20 group-hover:bg-emerald-500/20 transition-all">
-                        <Globe className="h-5 w-5 text-emerald-400" />
+                        <Globe className="h-5 w-5 md:h-6 md:w-6 text-emerald-400" />
                       </div>
                       <div>
                         <div className="text-[11px] font-black uppercase italic tracking-tight">Quantum Shield Engaged</div>
                         <div className="text-[9px] font-bold text-gray-500 uppercase tracking-widest mt-0.5">End-to-End Ledger Encryption</div>
                       </div>
                     </div>
-                    <CheckCircle2 className="h-4 w-4 text-emerald-500" />
+                    <CheckCircle2 className="h-4 w-4 md:h-5 md:w-5 text-emerald-500" />
                   </div>
                </CardContent>
             </Card>
@@ -229,7 +228,7 @@ export function Finance() {
                 <CardDescription className="text-[10px] font-black uppercase tracking-widest text-gray-400 mt-1 italic">Verified cryptographic transactions across integrated nodes.</CardDescription>
               </div>
               <button className="h-12 w-12 flex items-center justify-center text-gray-400 hover:text-indigo-600 border border-gray-100 rounded-2xl hover:bg-indigo-50 transition-all group">
-                <Filter className="h-5 w-5 group-hover:scale-110 transition-transform" />
+                <Filter className="h-5 w-5 md:h-6 md:w-6 group-hover:scale-110 transition-transform" />
               </button>
             </CardHeader>
             <CardContent className="p-0">
@@ -242,7 +241,7 @@ export function Finance() {
                           "h-14 w-14 rounded-2xl flex items-center justify-center shrink-0 border transition-all shadow-sm group-hover:rotate-6",
                           tx.type === 'income' ? 'bg-emerald-50 text-emerald-600 border-emerald-100' : 'bg-red-50 text-red-600 border-red-100'
                         )}>
-                          {tx.type === 'income' ? <ArrowUpRight className="h-6 w-6" /> : <ArrowDownLeft className="h-6 w-6" />}
+                          {tx.type === 'income' ? <ArrowUpRight className="h-6 w-6 md:h-7 md:w-7" /> : <ArrowDownLeft className="h-6 w-6 md:h-7 md:w-7" />}
                         </div>
                         <div className="ml-6">
                           <p className="text-base font-black text-gray-900 uppercase italic tracking-tight group-hover:text-indigo-600 transition-colors">{tx.description}</p>
@@ -353,7 +352,7 @@ export function Finance() {
                   </div>
 
                   <div className="bg-indigo-50 border border-indigo-100 p-6 rounded-2xl flex items-start space-x-5">
-                    <ShieldCheck className="h-8 w-8 text-indigo-600 shrink-0 mt-1" />
+                    <ShieldCheck className="h-8 w-8 md:h-10 md:w-10 text-indigo-600 shrink-0 mt-1" />
                     <div>
                       <h5 className="text-[11px] font-black text-indigo-900 uppercase italic tracking-tight">Financial Secrecy protocol v4.2</h5>
                       <p className="text-[10px] font-bold text-indigo-600/70 uppercase tracking-widest mt-1">Establishing secure websocket link to institution...</p>

@@ -33,7 +33,7 @@ export function Biometrics() {
              disabled={isSyncing}
              className="px-4 py-2 bg-white rounded-md text-sm font-bold shadow-sm flex items-center disabled:opacity-50"
            >
-             <RefreshCw className={`mr-2 h-3.5 w-3.5 ${isSyncing ? 'animate-spin' : ''}`} />
+             <RefreshCw className={`mr-2 h-3.5 w-3.5 md:h-4 md:w-4 ${isSyncing ? 'animate-spin' : ''}`} />
              {isSyncing ? 'Syncing...' : 'Sync Now'}
            </button>
            <button className="px-4 py-2 text-sm text-gray-500 font-medium">History</button>
@@ -43,18 +43,18 @@ export function Biometrics() {
       <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
         <Card className="p-4 flex flex-col justify-between min-h-[160px]">
           <div>
-            <Heart className="h-6 w-6 text-red-500 animate-pulse mb-4" />
+            <Heart className="h-6 w-6 md:h-7 md:w-7 text-red-500 animate-pulse mb-4" />
             <span className="text-[10px] font-bold text-gray-400 uppercase tracking-widest">Resting Heart Rate</span>
             <div className="text-3xl font-black text-gray-900">{biometrics.rhr} BPM</div>
           </div>
           <div className="flex items-center text-xs text-green-600 font-bold">
-            <TrendingDown className="h-3 w-3 mr-1" /> 4% below baseline
+            <TrendingDown className="h-3 w-3 md:h-4 md:w-4 mr-1" /> 4% below baseline
           </div>
         </Card>
 
         <Card className="p-4 flex flex-col justify-between min-h-[160px]">
           <div>
-            <Wind className="h-6 w-6 text-blue-400 mb-4" />
+            <Wind className="h-6 w-6 md:h-7 md:w-7 text-blue-400 mb-4" />
             <span className="text-[10px] font-bold text-gray-400 uppercase tracking-widest">Respiration Rate</span>
             <div className="text-3xl font-black text-gray-900">{biometrics.respiration} rpm</div>
           </div>
@@ -65,12 +65,12 @@ export function Biometrics() {
 
         <Card className="p-4 flex flex-col justify-between min-h-[160px]">
           <div>
-            <Zap className="h-6 w-6 text-orange-400 mb-4" />
+            <Zap className="h-6 w-6 md:h-7 md:w-7 text-orange-400 mb-4" />
             <span className="text-[10px] font-bold text-gray-400 uppercase tracking-widest">Stress Index</span>
             <div className="text-3xl font-black text-gray-900 uppercase">{biometrics.stress}</div>
           </div>
           <div className="flex items-center text-xs text-orange-600 font-bold">
-            <ArrowUpRight className="h-3 w-3 mr-1" /> Increasing (Study load)
+            <ArrowUpRight className="h-3 w-3 md:h-4 md:w-4 mr-1" /> Increasing (Study load)
           </div>
         </Card>
       </div>
@@ -107,7 +107,7 @@ export function Biometrics() {
            <Card className="bg-red-50 border-red-100">
               <CardHeader className="pb-2">
                  <div className="flex items-center text-red-600 font-bold text-xs uppercase tracking-wider mb-2">
-                    <Shield className="h-4 w-4 mr-2" />
+                    <Shield className="h-4 w-4 md:h-5 md:w-5 mr-2" />
                     Biometric Alert
                  </div>
                  <CardTitle className="text-lg">Systemic Inflammation detected.</CardTitle>
@@ -138,7 +138,7 @@ export function Biometrics() {
            <Card>
               <CardHeader>
                  <CardTitle className="text-sm flex items-center">
-                    <Info className="h-4 w-4 mr-2 text-gray-400" />
+                    <Info className="h-4 w-4 md:h-5 md:w-5 mr-2 text-gray-400" />
                     Device Ecosystem
                  </CardTitle>
               </CardHeader>

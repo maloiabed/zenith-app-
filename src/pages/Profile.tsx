@@ -64,14 +64,14 @@ export function Profile() {
               onClick={handleCancel}
               className="px-6 py-3 bg-white/5 text-gray-400 rounded-xl text-xs font-black uppercase tracking-widest hover:bg-white/10 transition-all border border-white/5"
             >
-              <X className="h-4 w-4 inline mr-2" />
+              <X className="h-4 w-4 md:h-5 md:w-5 inline mr-2" />
               Discard
             </button>
             <button 
               onClick={handleSave}
               className="px-6 py-3 bg-indigo-600 text-white rounded-xl text-xs font-black uppercase tracking-widest hover:bg-indigo-500 transition-all shadow-xl shadow-indigo-600/20"
             >
-              <Save className="h-4 w-4 inline mr-2" />
+              <Save className="h-4 w-4 md:h-5 md:w-5 inline mr-2" />
               Commit Changes
             </button>
           </div>
@@ -139,19 +139,19 @@ export function Profile() {
                     <>
                       <div className="flex items-center text-sm text-gray-400 font-bold group hover:text-white transition-colors">
                         <div className="p-2 bg-white/5 rounded-lg mr-4 border border-white/5 group-hover:border-indigo-500/30">
-                          <Mail className="h-4 w-4 text-indigo-400" />
+                          <Mail className="h-4 w-4 md:h-5 md:w-5 text-indigo-400" />
                         </div>
                         {userProfile.email}
                       </div>
                       <div className="flex items-center text-sm text-gray-400 font-bold group hover:text-white transition-colors">
                         <div className="p-2 bg-white/5 rounded-lg mr-4 border border-white/5 group-hover:border-indigo-500/30">
-                          <MapPin className="h-4 w-4 text-indigo-400" />
+                          <MapPin className="h-4 w-4 md:h-5 md:w-5 text-indigo-400" />
                         </div>
                         {userProfile.location}
                       </div>
                       <div className="flex items-center text-sm text-gray-400 font-bold group hover:text-white transition-colors">
                         <div className="p-2 bg-white/5 rounded-lg mr-4 border border-white/5 group-hover:border-indigo-500/30">
-                          <Globe className="h-4 w-4 text-indigo-400" />
+                          <Globe className="h-4 w-4 md:h-5 md:w-5 text-indigo-400" />
                         </div>
                         {userProfile.timezone}
                       </div>
@@ -165,7 +165,7 @@ export function Profile() {
           <Card className="bg-[#121225] border-white/5 shadow-2xl">
             <CardHeader className="border-b border-white/5">
               <CardTitle className="text-[10px] font-black text-gray-500 uppercase tracking-[0.2em] flex items-center">
-                <ShieldCheck className="h-4 w-4 mr-2 text-emerald-400" />
+                <ShieldCheck className="h-4 w-4 md:h-5 md:w-5 mr-2 text-emerald-400" />
                 System Status
               </CardTitle>
             </CardHeader>
@@ -190,7 +190,7 @@ export function Profile() {
             <Card className="bg-[#121225] border-white/5 shadow-xl">
               <CardHeader className="border-b border-white/5 bg-white/5">
                 <CardTitle className="text-sm font-black text-white uppercase tracking-tighter flex items-center italic">
-                  <Briefcase className="mr-3 h-4 w-4 text-indigo-400" />
+                  <Briefcase className="mr-3 h-4 w-4 md:h-5 md:w-5 text-indigo-400" />
                   Operative Capability
                 </CardTitle>
               </CardHeader>
@@ -232,7 +232,7 @@ export function Profile() {
             <Card className="bg-[#121225] border-white/5 shadow-xl">
               <CardHeader className="border-b border-white/5 bg-white/5">
                 <CardTitle className="text-sm font-black text-white uppercase tracking-tighter flex items-center italic">
-                  <GraduationCap className="mr-3 h-4 w-4 text-indigo-400" />
+                  <GraduationCap className="mr-3 h-4 w-4 md:h-5 md:w-5 text-indigo-400" />
                   Academic Foundation
                 </CardTitle>
               </CardHeader>
@@ -252,7 +252,7 @@ export function Profile() {
                           onClick={() => removeAcademic(idx)}
                           className="absolute -top-2 -right-2 p-1.5 bg-red-500 text-white rounded-lg opacity-0 group-hover:opacity-100 transition-opacity"
                         >
-                          <Trash2 className="h-3 w-3" />
+                          <Trash2 className="h-3 w-3 md:h-4 md:w-4" />
                         </button>
                       )}
                       {isEditing ? (
@@ -290,7 +290,7 @@ export function Profile() {
                     onClick={addAcademic}
                     className="w-full py-2 bg-indigo-500/10 text-indigo-400 rounded-xl text-[10px] font-black uppercase tracking-widest border border-indigo-500/20 hover:bg-indigo-500/20 transition-all"
                   >
-                    <Plus className="h-3 w-3 inline mr-2" />
+                    <Plus className="h-3 w-3 md:h-4 md:w-4 inline mr-2" />
                     Extend Foundation
                   </button>
                 )}
@@ -304,7 +304,7 @@ export function Profile() {
             </div>
             <CardHeader className="border-b border-white/5 bg-white/5">
               <CardTitle className="text-sm font-black text-white uppercase tracking-tighter flex items-center italic">
-                <Star className="mr-3 h-4 w-4 text-yellow-500" />
+                <Star className="mr-3 h-4 w-4 md:h-5 md:w-5 text-yellow-500" />
                 Strategic Vector & Ethos
               </CardTitle>
               <CardDescription className="text-gray-500 font-bold text-[10px] uppercase tracking-widest">Invariants used for AI trajectory modeling.</CardDescription>

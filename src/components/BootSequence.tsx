@@ -62,7 +62,7 @@ export function BootLoader({ onComplete }: { onComplete: () => void }) {
           <div className="flex justify-center mb-8">
             <div className="relative group">
               <div className="h-28 w-28 bg-gradient-to-br from-indigo-500 via-purple-600 to-pink-500 rounded-[2.5rem] flex items-center justify-center relative z-10 shadow-[0_0_80px_rgba(99,102,241,0.5)] transform group-hover:rotate-12 transition-transform duration-500 border border-white/20">
-                 <Shield className="h-14 w-14 text-white fill-white/20" />
+                 <Shield className="h-14 w-14 md:h-16 md:w-16 text-white fill-white/20" />
               </div>
               <motion.div 
                 animate={{ scale: [1, 1.6, 1], opacity: [0.4, 0.8, 0.4] }}
@@ -123,7 +123,7 @@ export function BootLoader({ onComplete }: { onComplete: () => void }) {
                className="flex flex-col items-center space-y-3"
              >
                 <div className={`p-3 rounded-xl bg-white/5 border border-white/10 ${item.color}`}>
-                  <item.icon className="h-5 w-5" />
+                  <item.icon className="h-5 w-5 md:h-6 md:w-6" />
                 </div>
                 <span className="text-[8px] font-black text-gray-500 uppercase tracking-[0.2em]">{item.label}</span>
              </motion.div>

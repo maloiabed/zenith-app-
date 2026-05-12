@@ -57,6 +57,33 @@
         "priorities": { "type": "array" },
         "productivityStyle": { "type": "string" }
       }
+    },
+    "ChatMessage": {
+      "title": "Chat Message",
+      "description": "A single piece of communication in a conversation.",
+      "type": "object",
+      "properties": {
+        "role": { "type": "string", "enum": ["user", "assistant"] },
+        "content": { "type": "string" },
+        "timestamp": { "type": "string", "format": "date-time" }
+      },
+      "required": ["role", "content", "timestamp"]
+    },
+    "Conversation": {
+      "title": "Conversation",
+      "description": "A persistent thread of intelligence exchange.",
+      "type": "object",
+      "properties": {
+        "subject": { "type": "string" },
+        "date": { "type": "string", "format": "date" },
+        "time": { "type": "string" },
+        "channel": { "type": "string" },
+        "linkedModules": { "type": "array" },
+        "tags": { "type": "array" },
+        "priority": { "type": "string", "enum": ["low", "medium", "high"] },
+        "backupStatus": { "type": "string" }
+      },
+      "required": ["subject", "date", "time", "channel"]
     }
   },
   "firestore": {
@@ -75,6 +102,14 @@
     "/users/{userId}/profile/main": {
       "schema": "UserProfile",
       "description": "User's top-level identity data."
+    },
+    "/users/{userId}/conversations/{convId}": {
+      "schema": "Conversation",
+      "description": "User's chat history with Zenith."
+    },
+    "/users/{userId}/conversations/{convId}/messages/{msgId}": {
+      "schema": "ChatMessage",
+      "description": "Atomic messages within a conversation thread."
     }
   }
 }

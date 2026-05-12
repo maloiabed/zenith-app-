@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle, CardFooter } from '@/src/components/ui/card';
-import { BookOpen, Brain, Plus, Search, Filter, Book, Clock, GraduationCap, ChevronRight, FileText, CheckCircle2, Target, Calendar, Upload, Settings, X, BrainCircuit } from 'lucide-react';
+import { BookOpen, Brain, Plus, Search, Filter, Book, Clock, GraduationCap, ChevronRight, FileText, CheckCircle2, Target, Calendar, Upload, Settings, X, BrainCircuit, Activity } from 'lucide-react';
 import { useZenithStore } from '@/src/store/zenithStore';
 import { motion, AnimatePresence } from 'motion/react';
 import { cn } from '@/src/lib/utils';
@@ -46,11 +46,11 @@ export function Study() {
             onClick={() => setIsAddingUnit(true)}
             className="flex items-center px-6 py-3 bg-white border border-gray-200 text-gray-700 rounded-xl text-xs font-black uppercase tracking-widest hover:bg-gray-50 transition-all shadow-sm"
           >
-            <Plus className="mr-2 h-4 w-4 text-indigo-600" />
+            <Plus className="mr-2 h-4 w-4 md:h-5 md:w-5 text-indigo-600" />
             Provision Unit
           </button>
           <button className="flex items-center px-6 py-3 bg-indigo-600 text-white rounded-xl text-xs font-black uppercase tracking-widest hover:bg-indigo-700 transition-all shadow-xl shadow-indigo-600/20">
-            <BrainCircuit className="mr-2 h-4 w-4" />
+            <BrainCircuit className="mr-2 h-4 w-4 md:h-5 md:w-5" />
             Neural Sync
           </button>
         </div>
@@ -70,7 +70,7 @@ export function Study() {
               activeTab === tab.id ? "bg-white text-indigo-600 shadow-xl border border-gray-100 scale-105" : "text-gray-400 hover:text-gray-600 hover:bg-gray-50"
             )}
           >
-            <tab.icon className="mr-2.5 h-4 w-4" />
+            <tab.icon className="mr-2.5 h-4 w-4 md:h-5 md:w-5" />
             {tab.label}
           </button>
         ))}
@@ -97,7 +97,7 @@ export function Study() {
                       </CardDescription>
                     </div>
                     <div className="h-16 w-16 bg-gray-50 rounded-3xl flex items-center justify-center border border-gray-100 text-indigo-600 shadow-inner">
-                      <Target className="h-8 w-8" />
+                      <Target className="h-8 w-8 md:h-10 md:w-10" />
                     </div>
                   </CardHeader>
                   <CardContent className="p-0">
@@ -129,7 +129,7 @@ export function Study() {
                               </td>
                               <td className="px-8 py-6">
                                 <div className="flex items-center text-[10px] font-black text-emerald-600 uppercase tracking-widest bg-emerald-50 w-fit px-3 py-1 rounded-lg border border-emerald-100">
-                                  <CheckCircle2 className="h-3 w-3 mr-2" />
+                                  <CheckCircle2 className="h-3 w-3 md:h-4 md:w-4 mr-2" />
                                   Active
                                 </div>
                               </td>
@@ -163,7 +163,7 @@ export function Study() {
                           <CardTitle className="text-2xl font-black text-gray-900 tracking-tighter uppercase italic leading-tight">{unit.name}</CardTitle>
                         </div>
                         <button className="h-12 w-12 bg-gray-50 rounded-2xl flex items-center justify-center text-gray-400 hover:text-indigo-600 border border-gray-100 transition-all shadow-inner">
-                          <Settings className="h-5 w-5" />
+                          <Settings className="h-5 w-5 md:h-6 md:w-6" />
                         </button>
                       </div>
                     </CardHeader>
@@ -181,7 +181,7 @@ export function Study() {
                       
                       <div className="space-y-4">
                         <label className="text-[10px] font-black text-gray-400 uppercase tracking-[0.2em] flex items-center">
-                           <FileText className="h-3.5 w-3.5 mr-2 text-indigo-500" />
+                           <FileText className="h-3.5 w-3.5 md:h-4 md:w-4 mr-2 text-indigo-500" />
                            Intel Assets
                         </label>
                         <div className="space-y-2">
@@ -191,10 +191,10 @@ export function Study() {
                               return (
                                 <div key={docId} className="flex items-center justify-between p-4 bg-gray-50 rounded-2xl border border-gray-100 group/doc hover:bg-white hover:shadow-md transition-all">
                                   <div className="flex items-center">
-                                    <FileText className="h-4 w-4 mr-3 text-indigo-400" />
+                                    <FileText className="h-4 w-4 md:h-5 md:w-5 mr-3 text-indigo-400" />
                                     <span className="text-[11px] font-black text-gray-600 uppercase tracking-tight">{doc?.name || 'Knowledge Asset'}</span>
                                   </div>
-                                  <ChevronRight className="h-4 w-4 text-gray-300 group-hover/doc:translate-x-1 transition-transform" />
+                                  <ChevronRight className="h-4 w-4 md:h-5 md:w-5 text-gray-300 group-hover/doc:translate-x-1 transition-transform" />
                                 </div>
                               );
                             })
@@ -215,7 +215,7 @@ export function Study() {
                          Upload Intel
                        </button>
                        <button className="h-14 w-14 bg-indigo-600 text-white rounded-2xl flex items-center justify-center hover:bg-gray-900 transition-all shadow-xl shadow-indigo-600/20">
-                         <Search className="h-5 w-5" />
+                         <Search className="h-5 w-5 md:h-6 md:w-6" />
                        </button>
                     </CardFooter>
                   </Card>
@@ -238,13 +238,13 @@ export function Study() {
                       <div className="flex justify-between items-start">
                         <CardTitle className="text-xl font-black text-gray-900 italic tracking-tighter uppercase leading-tight">{deck.name}</CardTitle>
                         <div className="h-12 w-12 bg-indigo-50 text-indigo-600 rounded-2xl flex items-center justify-center border border-indigo-100 shadow-inner group-hover:rotate-12 transition-transform">
-                           <Brain className="h-6 w-6" />
+                           <Brain className="h-6 w-6 md:h-8 md:w-8" />
                         </div>
                       </div>
                     </CardHeader>
                     <CardContent className="p-8 pt-4">
                        <div className="flex items-center text-gray-400 text-[10px] font-black uppercase tracking-widest bg-gray-50 w-fit px-3 py-1 rounded-lg">
-                          <BookOpen className="mr-2 h-3.5 w-3.5 text-indigo-400" />
+                          <BookOpen className="mr-2 h-3.5 w-3.5 md:h-4 md:w-4 text-indigo-400" />
                           {deck.cardsCount} Concepts
                        </div>
                     </CardContent>
@@ -269,7 +269,7 @@ export function Study() {
                </div>
                <CardHeader className="p-0 border-b border-white/5 pb-6">
                   <CardTitle className="text-[11px] font-black text-indigo-400 uppercase tracking-[0.2em] flex items-center">
-                    <Activity className="h-4 w-4 mr-3" />
+                    <Activity className="h-4 w-4 md:h-5 md:w-5 mr-3" />
                     Neural Cortex Feed
                   </CardTitle>
                </CardHeader>
@@ -297,7 +297,7 @@ export function Study() {
 
                   <Card className="bg-black/40 border border-indigo-500/20 rounded-3xl backdrop-blur-xl group/coach overflow-hidden">
                     <div className="absolute top-0 right-0 p-4 opacity-10">
-                       <BrainCircuit className="h-10 w-10" />
+                       <BrainCircuit className="h-10 w-10 md:h-12 md:w-12" />
                     </div>
                     <CardHeader className="pb-2">
                        <CardTitle className="text-[10px] font-black text-indigo-400 uppercase tracking-widest">AI Strategic Coach</CardTitle>
@@ -404,7 +404,7 @@ export function Study() {
 
                     <div className="p-8 bg-indigo-50 border border-indigo-100 rounded-3xl flex items-center space-x-6">
                        <div className="h-14 w-14 bg-indigo-600 text-white rounded-2xl flex items-center justify-center shadow-xl shadow-indigo-600/20">
-                          <CheckCircle2 className="h-7 w-7" />
+                          <CheckCircle2 className="h-7 w-7 md:h-8 md:w-8" />
                        </div>
                        <div>
                           <h5 className="text-xs font-black text-indigo-900 uppercase italic tracking-tight">Synaptic Allocation Protocol</h5>

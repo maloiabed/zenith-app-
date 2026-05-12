@@ -70,6 +70,22 @@ service cloud.firestore {
              data.email == request.auth.token.email;
     }
 
+    // 5. Conversation Validation
+    function isValidConversation(data) {
+      return data.keys().hasAll(['subject', 'date', 'time', 'channel']) &&
+             data.subject is string && data.subject.size() <= 200 &&
+             data.date is string &&
+             data.time is string &&
+             data.channel is string;
+    }
+
+    // 6. Message Validation
+    function isValidMessage(data) {
+      return data.keys().hasAll(['role', 'content', 'timestamp']) &&
+             data.role in ['user', 'assistant'] &&
+             data.content is string && data.content.size() <= 10000;
+    }
+
     match /users/{userId} {
       match /tasks/{taskId} {
         allow get: if isOwner(userId) && isValidId(taskId);
@@ -104,6 +120,21 @@ service cloud.firestore {
       match /profile/main {
         allow get: if isOwner(userId);
         allow write: if isVerified() && isOwner(userId) && isValidProfile(incoming());
+      }
+
+      match /conversations/{convId} {
+        allow get: if isOwner(userId) && isValidId(convId);
+        allow list: if isOwner(userId);
+        allow create: if isVerified() && isOwner(userId) && isValidId(convId) && isValidConversation(incoming());
+        allow update: if isVerified() && isOwner(userId) && isValidId(convId) && isValidConversation(incoming());
+        allow delete: if isVerified() && isOwner(userId) && isValidId(convId);
+
+        match /messages/{msgId} {
+          allow get: if isOwner(userId) && isValidId(msgId);
+          allow list: if isOwner(userId);
+          allow create: if isVerified() && isOwner(userId) && isValidId(msgId) && isValidMessage(incoming());
+          allow delete: if isVerified() && isOwner(userId) && isValidId(msgId);
+        }
       }
     }
   }
