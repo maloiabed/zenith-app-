@@ -1,6 +1,6 @@
 {
-  "name": "Zenith app best",
+  "name": "Zenith AI Life OS",
   "description": "Comprehensive life command center for managing finance, study, business, health, IoT, power, and high-level strategy.",
   "requestFramePermissions": [],
-  "majorCapabilities": []
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
 }
